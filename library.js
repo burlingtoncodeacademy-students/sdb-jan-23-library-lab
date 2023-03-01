@@ -46,9 +46,18 @@ class Library {
     }
 
     async addBook(info) {
-        const collection = await this.collection()
-        await collection.insertOne(info)
-        console.log(`Book successfully added`)
+        try {
+            const collection = await this.collection()
+            // Going further
+            if (!(info instanceof Object)) {
+                throw new Error("Incorrect data type. Takes object.")
+            };
+            // -------------------------------
+            await collection.insertOne(info)
+            console.log(`Book successfully added`)
+        } catch (err) {
+            console.log(err)
+        }
     }
 
     async changeBook(id, newInfo) {

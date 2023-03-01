@@ -31,3 +31,4 @@ const c = new Library(DB_URL, "library", "books")
 
 // c.removeBook("63ff68881f272ecd81e96d26")
 
+c.addBook("potato")
